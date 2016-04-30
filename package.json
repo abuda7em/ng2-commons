@@ -12,11 +12,5 @@
   "license": "ISC",
   "dependencies": {
     "angular2": "2.0.0-beta.17"
-  },
-  "devDependencies": {
-    "concurrently": "^2.0.0",
-    "lite-server": "^2.2.0",
-    "typescript": "^1.8.9",
-    "typings":"^0.7.12"
   }
 }
