@@ -192,7 +192,7 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
                             console.log('matched layout', usedLayout);
                             observer.next(value[usedLayout]);
                         });
-                    }).debounce(10);
+                    });
                 };
                 ResponsivePipe = __decorate([
                     core_3.Pipe({
