@@ -6,7 +6,7 @@ var merge = require('merge2');
 var git = require('gulp-git');
 
 gulp.task('commit', function(){
-  return gulp.src('./*')
+  return gulp.src(['./src/*','./bundles/*','./ng2-commons.js'])
     .pipe(git.commit('gulp commit'));
 });
 
