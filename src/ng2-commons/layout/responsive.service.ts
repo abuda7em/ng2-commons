@@ -68,6 +68,6 @@ export class ResponsivePipe{
         console.log('matched layout',usedLayout);
         observer.next(value[usedLayout]);
       });
-    });
+    }).debounce(10);
   }
 }
