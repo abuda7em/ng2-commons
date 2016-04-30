@@ -5,12 +5,12 @@ var tscConfig = require('./tsconfig.json');
 var merge = require('merge2');
 var git = require('gulp-git');
 
-gulp.task('commit', function(){
-  return gulp.src(['./src/*','./bundles/*','./ng2-commons.js'])
+gulp.task('commit',['compile'], function(){
+  return gulp.src(['./src/*','./bundles/*','./ng2-commons.d.ts','./gulpfile.js'])
     .pipe(git.commit('gulp commit'));
 });
 
-gulp.task('push', function(){
+gulp.task('push',['commit'], function(){
   git.push('origin', 'master', function (err) {
     if (err) throw err;
   });
