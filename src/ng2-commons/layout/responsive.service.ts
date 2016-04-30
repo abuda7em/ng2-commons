@@ -1,6 +1,6 @@
 import {Injectable,Pipe} from 'angular2/core'
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/pluck'

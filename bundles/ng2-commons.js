@@ -105,10 +105,10 @@ System.register("ng2-commons/layout/layout", ['angular2/core'], function(exports
         }
     }
 });
-System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs/BehaviorSubject', 'rxjs/Observable', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/map', 'rxjs/add/operator/pluck', 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/debounce'], function(exports_3, context_3) {
+System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs/BehaviorSubject', 'rxjs/Rx', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/map', 'rxjs/add/operator/pluck', 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/debounce'], function(exports_3, context_3) {
     "use strict";
     var __moduleName = context_3 && context_3.id;
-    var core_3, BehaviorSubject_1, Observable_1;
+    var core_3, BehaviorSubject_1, Rx_1;
     var ResponsiveService, ResponsivePipe;
     return {
         setters:[
@@ -118,8 +118,8 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
             function (BehaviorSubject_1_1) {
                 BehaviorSubject_1 = BehaviorSubject_1_1;
             },
-            function (Observable_1_1) {
-                Observable_1 = Observable_1_1;
+            function (Rx_1_1) {
+                Rx_1 = Rx_1_1;
             },
             function (_1) {},
             function (_2) {},
@@ -133,7 +133,7 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
                     this.width = windowSize.pluck('width').distinctUntilChanged();
                     this.height = windowSize.pluck('height').distinctUntilChanged();
                     this.layouts = windowSize.pluck('layouts').distinctUntilChanged(); // only observed distinct changes, e.g sm -> md -> lg, not lg -> lg -> lg
-                    Observable_1.Observable.fromEvent(window, 'resize')
+                    Rx_1.Observable.fromEvent(window, 'resize')
                         .map(this.getWindowSize)
                         .subscribe(windowSize);
                 }
@@ -176,7 +176,7 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
                 }
                 ResponsivePipe.prototype.transform = function (value) {
                     var _this = this;
-                    return Observable_1.Observable.create(function (observer) {
+                    return Rx_1.Observable.create(function (observer) {
                         _this.responsive.layouts.subscribe(function (l) {
                             var matchedLayouts = l.filter(function (l) { return !l.startsWith('gt-'); }).filter(function (l) { return value[l]; });
                             var matchedGtLayouts = l.filter(function (l) { return l.startsWith('gt-'); }).filter(function (l) { return value[l]; });

@@ -19,7 +19,7 @@ declare module "ng2-commons/layout/layout" {
     }
 }
 declare module "ng2-commons/layout/responsive.service" {
-    import { Observable } from 'rxjs/Observable';
+    import { Observable } from 'rxjs/Rx';
     import 'rxjs/add/observable/fromEvent';
     import 'rxjs/add/operator/map';
     import 'rxjs/add/operator/pluck';
