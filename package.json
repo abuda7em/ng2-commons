@@ -1,14 +1,6 @@
 {
   "name": "ng2-commons",
   "version": "0.0.1",
-  "scripts": {
-    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "lite": "lite-server",
-    "typings": "typings",
-    "postinstall": "typings install"
-  },
   "license": "ISC",
   "dependencies": {
     "angular2": "2.0.0-beta.17"
