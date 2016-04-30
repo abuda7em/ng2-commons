@@ -109,7 +109,7 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
     "use strict";
     var __moduleName = context_3 && context_3.id;
     var core_3, BehaviorSubject_1, Observable_1;
-    var ResponsiveService;
+    var ResponsivePipe, ResponsiveService;
     return {
         setters:[
             function (core_3_1) {
@@ -126,6 +126,40 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
             function (_3) {},
             function (_4) {}],
         execute: function() {
+            ResponsivePipe = (function () {
+                function ResponsivePipe(pResizeSvc) {
+                    this.pResizeSvc = pResizeSvc;
+                }
+                ResponsivePipe.prototype.transform = function (value, args) {
+                    var _this = this;
+                    console.log('transforming');
+                    return Observable_1.Observable.create(function (observer) {
+                        _this.pResizeSvc.layouts.subscribe(function (l) {
+                            var matchedLayouts = l.filter(function (l) { return !l.startsWith('gt-'); }).filter(function (l) { return value; });
+                            var matchedGtLayouts = l.filter(function (l) { return l.startsWith('gt-'); }).filter(function (l) { return value; });
+                            var style = undefined;
+                            for (var i = 0; style === undefined && i < matchedLayouts.length; i++) {
+                                style = value[matchedLayouts[i]];
+                            }
+                            for (var i = 0; style === undefined && i < matchedGtLayouts.length; i++) {
+                                style = value[matchedGtLayouts[i]];
+                            }
+                            if (style === undefined) {
+                                style = value['default'];
+                            }
+                            observer.next(style);
+                        });
+                    });
+                };
+                ResponsivePipe = __decorate([
+                    core_3.Pipe({
+                        name: 'responsive'
+                    }), 
+                    __metadata('design:paramtypes', [ResponsiveService])
+                ], ResponsivePipe);
+                return ResponsivePipe;
+            }());
+            exports_3("ResponsivePipe", ResponsivePipe);
             ResponsiveService = (function () {
                 function ResponsiveService() {
                     var windowSize = new BehaviorSubject_1.BehaviorSubject(this.getWindowSize()); // most recent and subsequent values
