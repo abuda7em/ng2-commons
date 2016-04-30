@@ -1,6 +1,6 @@
 {
   "name": "ng2-commons",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "ISC",
   "dependencies": {
     "angular2": "2.0.0-beta.17"
