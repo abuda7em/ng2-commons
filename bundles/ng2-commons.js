@@ -105,7 +105,7 @@ System.register("ng2-commons/layout/layout", ['angular2/core'], function(exports
         }
     }
 });
-System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs/BehaviorSubject', 'rxjs/Observable', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/map', 'rxjs/add/operator/pluck', 'rxjs/add/operator/distinctUntilChanged'], function(exports_3, context_3) {
+System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs/BehaviorSubject', 'rxjs/Observable', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/map', 'rxjs/add/operator/pluck', 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/debounce'], function(exports_3, context_3) {
     "use strict";
     var __moduleName = context_3 && context_3.id;
     var core_3, BehaviorSubject_1, Observable_1;
@@ -124,7 +124,8 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
             function (_1) {},
             function (_2) {},
             function (_3) {},
-            function (_4) {}],
+            function (_4) {},
+            function (_5) {}],
         execute: function() {
             ResponsiveService = (function () {
                 function ResponsiveService() {
