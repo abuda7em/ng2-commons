@@ -206,9 +206,74 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
         }
     }
 });
-System.register("ng2-commons/layout", ["ng2-commons/layout/flex", "ng2-commons/layout/layout", "ng2-commons/layout/responsive.service"], function(exports_4, context_4) {
+System.register("ng2-commons/layout/icon.directive", ['angular2/core'], function(exports_4, context_4) {
     "use strict";
     var __moduleName = context_4 && context_4.id;
+    var core_4;
+    var IconDirective;
+    return {
+        setters:[
+            function (core_4_1) {
+                core_4 = core_4_1;
+            }],
+        execute: function() {
+            IconDirective = (function () {
+                function IconDirective() {
+                    this.dir = 'ltr';
+                    this.labelShown = false;
+                }
+                IconDirective.prototype.showLabel = function () { this.labelShown = this.label ? true : false; };
+                IconDirective.prototype.hideLabel = function () { this.labelShown = false; };
+                __decorate([
+                    core_4.Input(), 
+                    __metadata('design:type', String)
+                ], IconDirective.prototype, "name", void 0);
+                __decorate([
+                    core_4.Input(), 
+                    __metadata('design:type', String)
+                ], IconDirective.prototype, "cssClasses", void 0);
+                __decorate([
+                    core_4.Input('font-size'), 
+                    __metadata('design:type', String)
+                ], IconDirective.prototype, "fontSize", void 0);
+                __decorate([
+                    core_4.Input(), 
+                    __metadata('design:type', String)
+                ], IconDirective.prototype, "backgroundColor", void 0);
+                __decorate([
+                    core_4.Input(), 
+                    __metadata('design:type', String)
+                ], IconDirective.prototype, "fontColor", void 0);
+                __decorate([
+                    core_4.Input(), 
+                    __metadata('design:type', String)
+                ], IconDirective.prototype, "label", void 0);
+                __decorate([
+                    core_4.Optional(), 
+                    __metadata('design:type', Object)
+                ], IconDirective.prototype, "dir", void 0);
+                IconDirective = __decorate([
+                    core_4.Component({
+                        selector: 'sc-icon',
+                        host: {
+                            'style': ';display:inline-block;white-space:nowrap',
+                            '(mouseenter)': 'showLabel()',
+                            '(mouseleave)': 'hideLabel()'
+                        },
+                        styles: ['.rounded{border-radius:50%}'],
+                        template: "<i class=\"material-icons {{cssClasses}}\" [style.backgroundColor]=\"backgroundColor\"\n              [style.fontSize]=\"fontSize\" [style.color]=\"fontColor ? fontColor:'inherit'\">\n              {{name}}\n            </i>\n            <span *ngIf=\"labelShown && label\">{{label}}</span>"
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], IconDirective);
+                return IconDirective;
+            }());
+            exports_4("IconDirective", IconDirective);
+        }
+    }
+});
+System.register("ng2-commons/layout", ["ng2-commons/layout/flex", "ng2-commons/layout/layout", "ng2-commons/layout/responsive.service", "ng2-commons/layout/icon.directive"], function(exports_5, context_5) {
+    "use strict";
+    var __moduleName = context_5 && context_5.id;
     var flex_1, layout_1;
     var LAYOUT_DIRECTIVES;
     var exportedNames_1 = {
@@ -219,7 +284,7 @@ System.register("ng2-commons/layout", ["ng2-commons/layout/flex", "ng2-commons/l
         for(var n in m) {
             if (n !== "default"&& !exportedNames_1.hasOwnProperty(n)) exports[n] = m[n];
         }
-        exports_4(exports);
+        exports_5(exports);
     }
     return {
         setters:[
@@ -233,15 +298,18 @@ System.register("ng2-commons/layout", ["ng2-commons/layout/flex", "ng2-commons/l
             },
             function (responsive_service_1_1) {
                 exportStar_1(responsive_service_1_1);
+            },
+            function (icon_directive_1_1) {
+                exportStar_1(icon_directive_1_1);
             }],
         execute: function() {
-            exports_4("LAYOUT_DIRECTIVES", LAYOUT_DIRECTIVES = [flex_1.FlexDirective, layout_1.LayoutDirective]);
+            exports_5("LAYOUT_DIRECTIVES", LAYOUT_DIRECTIVES = [flex_1.FlexDirective, layout_1.LayoutDirective]);
         }
     }
 });
-System.register("ng2-commons", [], function(exports_5, context_5) {
+System.register("ng2-commons", [], function(exports_6, context_6) {
     "use strict";
-    var __moduleName = context_5 && context_5.id;
+    var __moduleName = context_6 && context_6.id;
     return {
         setters:[],
         execute: function() {

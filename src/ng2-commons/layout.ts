@@ -4,3 +4,4 @@ export * from './layout/layout';
 import {LayoutDirective} from './layout/layout';
 export const LAYOUT_DIRECTIVES = [FlexDirective,LayoutDirective];
 export * from './layout/responsive.service';
+export * from './layout/icon.directive';

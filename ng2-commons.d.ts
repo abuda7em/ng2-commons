@@ -42,6 +42,20 @@ declare module "ng2-commons/layout/responsive.service" {
         transform(value: any, args: any): any;
     }
 }
+declare module "ng2-commons/layout/icon.directive" {
+    export class IconDirective {
+        name: string;
+        cssClasses: string;
+        fontSize: string;
+        backgroundColor: string;
+        fontColor: string;
+        label: string;
+        dir: string;
+        labelShown: boolean;
+        showLabel(): void;
+        hideLabel(): void;
+    }
+}
 declare module "ng2-commons/layout" {
     export * from "ng2-commons/layout/flex";
     import { FlexDirective } from "ng2-commons/layout/flex";
@@ -49,6 +63,7 @@ declare module "ng2-commons/layout" {
     import { LayoutDirective } from "ng2-commons/layout/layout";
     export const LAYOUT_DIRECTIVES: (typeof FlexDirective | typeof LayoutDirective)[];
     export * from "ng2-commons/layout/responsive.service";
+    export * from "ng2-commons/layout/icon.directive";
 }
 declare module "ng2-commons" {
 }
