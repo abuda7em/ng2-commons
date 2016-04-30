@@ -39,7 +39,7 @@ declare module "ng2-commons/layout/responsive.service" {
         private responsive;
         obs: any;
         constructor(responsive: ResponsiveService);
-        transform(value: any, args: any): any;
+        transform(value: any): any;
     }
 }
 declare module "ng2-commons/layout/icon.directive" {

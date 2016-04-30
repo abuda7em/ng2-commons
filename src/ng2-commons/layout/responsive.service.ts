@@ -50,24 +50,23 @@ export class ResponsivePipe{
   obs;
   constructor(private responsive:ResponsiveService) {
   }
-  transform(value,args){
-    console.log('transforming');
+  transform(value){
     return Observable.create(observer=>{
       this.responsive.layouts.subscribe(l=>{
         let matchedLayouts = l.filter(l=>!l.startsWith('gt-')).filter(l => value);
         let matchedGtLayouts = l.filter(l=>l.startsWith('gt-')).filter(l => value);
-
-        let style = undefined;
-        for(let i = 0;style === undefined && i < matchedLayouts.length;i++){
-          style = value[matchedLayouts[i]];
+        let usedLayout = undefined;
+        for(let i = 0;usedLayout === undefined && i < matchedLayouts.length;i++){
+            usedLayout = matchedLayouts[i];
         }
-        for(let i = 0;style === undefined && i < matchedGtLayouts.length;i++){
-          style = value[matchedGtLayouts[i]];
+        for(let i = 0;usedLayout === undefined && i < matchedGtLayouts.length;i++){
+            usedLayout = matchedGtLayouts[i];
         }
-        if(style === undefined ){
-          style = value['default'];
+        if(usedLayout === undefined ){
+            usedLayout = 'default';
         }
-        observer.next(style);
+        console.log('matched layout',usedLayout);
+        observer.next(value[usedLayout]);
       });
     });
   }

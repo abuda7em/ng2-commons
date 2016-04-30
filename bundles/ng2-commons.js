@@ -173,24 +173,24 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
                 function ResponsivePipe(responsive) {
                     this.responsive = responsive;
                 }
-                ResponsivePipe.prototype.transform = function (value, args) {
+                ResponsivePipe.prototype.transform = function (value) {
                     var _this = this;
-                    console.log('transforming');
                     return Observable_1.Observable.create(function (observer) {
                         _this.responsive.layouts.subscribe(function (l) {
                             var matchedLayouts = l.filter(function (l) { return !l.startsWith('gt-'); }).filter(function (l) { return value; });
                             var matchedGtLayouts = l.filter(function (l) { return l.startsWith('gt-'); }).filter(function (l) { return value; });
-                            var style = undefined;
-                            for (var i = 0; style === undefined && i < matchedLayouts.length; i++) {
-                                style = value[matchedLayouts[i]];
+                            var usedLayout = undefined;
+                            for (var i = 0; usedLayout === undefined && i < matchedLayouts.length; i++) {
+                                usedLayout = matchedLayouts[i];
                             }
-                            for (var i = 0; style === undefined && i < matchedGtLayouts.length; i++) {
-                                style = value[matchedGtLayouts[i]];
+                            for (var i = 0; usedLayout === undefined && i < matchedGtLayouts.length; i++) {
+                                usedLayout = matchedGtLayouts[i];
                             }
-                            if (style === undefined) {
-                                style = value['default'];
+                            if (usedLayout === undefined) {
+                                usedLayout = 'default';
                             }
-                            observer.next(style);
+                            console.log('matched layout', usedLayout);
+                            observer.next(value[usedLayout]);
                         });
                     });
                 };
