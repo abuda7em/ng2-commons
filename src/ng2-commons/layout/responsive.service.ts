@@ -6,35 +6,7 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/pluck'
 import 'rxjs/add/operator/distinctUntilChanged'
 
-@Pipe({
-  name:'responsive'
-})
-export class ResponsivePipe{
-  obs;
-  constructor(private pResizeSvc:ResponsiveService) {
-  }
-  transform(value,args){
-    console.log('transforming');
-    return Observable.create(observer=>{
-      this.pResizeSvc.layouts.subscribe(l=>{
-        let matchedLayouts = l.filter(l=>!l.startsWith('gt-')).filter(l => value);
-        let matchedGtLayouts = l.filter(l=>l.startsWith('gt-')).filter(l => value);
 
-        let style = undefined;
-        for(let i = 0;style === undefined && i < matchedLayouts.length;i++){
-          style = value[matchedLayouts[i]];
-        }
-        for(let i = 0;style === undefined && i < matchedGtLayouts.length;i++){
-          style = value[matchedGtLayouts[i]];
-        }
-        if(style === undefined ){
-          style = value['default'];
-        }
-        observer.next(style);
-      });
-    });
-  }
-}
 
 @Injectable()
 export class ResponsiveService {
@@ -68,5 +40,35 @@ export class ResponsiveService {
       width: window.innerWidth,
       layouts: sizes
     };
+  }
+}
+
+@Pipe({
+  name:'responsive'
+})
+export class ResponsivePipe{
+  obs;
+  constructor(private responsive:ResponsiveService) {
+  }
+  transform(value,args){
+    console.log('transforming');
+    return Observable.create(observer=>{
+      this.responsive.layouts.subscribe(l=>{
+        let matchedLayouts = l.filter(l=>!l.startsWith('gt-')).filter(l => value);
+        let matchedGtLayouts = l.filter(l=>l.startsWith('gt-')).filter(l => value);
+
+        let style = undefined;
+        for(let i = 0;style === undefined && i < matchedLayouts.length;i++){
+          style = value[matchedLayouts[i]];
+        }
+        for(let i = 0;style === undefined && i < matchedGtLayouts.length;i++){
+          style = value[matchedGtLayouts[i]];
+        }
+        if(style === undefined ){
+          style = value['default'];
+        }
+        observer.next(style);
+      });
+    });
   }
 }
