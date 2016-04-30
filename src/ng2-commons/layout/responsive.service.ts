@@ -53,8 +53,8 @@ export class ResponsivePipe{
   transform(value){
     return Observable.create(observer=>{
       this.responsive.layouts.subscribe(l=>{
-        let matchedLayouts = l.filter(l=>!l.startsWith('gt-')).filter(l => value);
-        let matchedGtLayouts = l.filter(l=>l.startsWith('gt-')).filter(l => value);
+        let matchedLayouts = l.filter(l=>!l.startsWith('gt-')).filter(l => value[l]);
+        let matchedGtLayouts = l.filter(l=>l.startsWith('gt-')).filter(l => value[l]);
         let usedLayout = undefined;
         for(let i = 0;usedLayout === undefined && i < matchedLayouts.length;i++){
             usedLayout = matchedLayouts[i];

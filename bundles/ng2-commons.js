@@ -177,8 +177,8 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
                     var _this = this;
                     return Observable_1.Observable.create(function (observer) {
                         _this.responsive.layouts.subscribe(function (l) {
-                            var matchedLayouts = l.filter(function (l) { return !l.startsWith('gt-'); }).filter(function (l) { return value; });
-                            var matchedGtLayouts = l.filter(function (l) { return l.startsWith('gt-'); }).filter(function (l) { return value; });
+                            var matchedLayouts = l.filter(function (l) { return !l.startsWith('gt-'); }).filter(function (l) { return value[l]; });
+                            var matchedGtLayouts = l.filter(function (l) { return l.startsWith('gt-'); }).filter(function (l) { return value[l]; });
                             var usedLayout = undefined;
                             for (var i = 0; usedLayout === undefined && i < matchedLayouts.length; i++) {
                                 usedLayout = matchedLayouts[i];
