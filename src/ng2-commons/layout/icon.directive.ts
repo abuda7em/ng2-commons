@@ -1,4 +1,4 @@
-import {Component,Input,Optional} from 'angular2/core';
+import {Component,Input,Optional} from '@angular/core';
 @Component({
   selector:'sc-icon',
   host:{

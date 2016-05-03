@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "license": "ISC",
   "dependencies": {
-    "angular2": "2.0.0-beta.17"
+    "@angular/core": "2.0.0-rc.1",
+    "zone.js": "^0.6.12"
   }
 }

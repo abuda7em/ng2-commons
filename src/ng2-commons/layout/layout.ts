@@ -1,4 +1,4 @@
-import {Directive,Input,Renderer,ElementRef} from 'angular2/core';
+import {Directive,Input,Renderer,ElementRef} from '@angular/core';
 
 const ALIGN_ITEMS = {'baseline':'baseline','end':'flex-end','start':'flex-start','stretch':'stretch','center':'center'};
 const JUSTIFY_CONTENT = {'end':'flex-end','start':'flex-start','center':'center','space-around':'space-around','space-between':'space-between'};

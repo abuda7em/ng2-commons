@@ -1,5 +1,5 @@
 declare module "ng2-commons/layout/flex" {
-    import { ElementRef, Renderer } from 'angular2/core';
+    import { ElementRef, Renderer } from '@angular/core';
     export class FlexDirective {
         private renderer;
         private el;
@@ -9,7 +9,7 @@ declare module "ng2-commons/layout/flex" {
     }
 }
 declare module "ng2-commons/layout/layout" {
-    import { Renderer, ElementRef } from 'angular2/core';
+    import { Renderer, ElementRef } from '@angular/core';
     export class LayoutDirective {
         private renderer;
         private el;

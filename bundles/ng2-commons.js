@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-System.register("ng2-commons/layout/flex", ['angular2/core'], function(exports_1, context_1) {
+System.register("ng2-commons/layout/flex", ['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var core_1;
@@ -43,7 +43,7 @@ System.register("ng2-commons/layout/flex", ['angular2/core'], function(exports_1
         }
     }
 });
-System.register("ng2-commons/layout/layout", ['angular2/core'], function(exports_2, context_2) {
+System.register("ng2-commons/layout/layout", ['@angular/core'], function(exports_2, context_2) {
     "use strict";
     var __moduleName = context_2 && context_2.id;
     var core_2;
@@ -105,7 +105,7 @@ System.register("ng2-commons/layout/layout", ['angular2/core'], function(exports
         }
     }
 });
-System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs/BehaviorSubject', 'rxjs/Rx', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/map', 'rxjs/add/operator/pluck', 'rxjs/add/operator/distinctUntilChanged'], function(exports_3, context_3) {
+System.register("ng2-commons/layout/responsive.service", ['@angular/core', 'rxjs/BehaviorSubject', 'rxjs/Rx', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/map', 'rxjs/add/operator/pluck', 'rxjs/add/operator/distinctUntilChanged'], function(exports_3, context_3) {
     "use strict";
     var __moduleName = context_3 && context_3.id;
     var core_3, BehaviorSubject_1, Rx_1;
@@ -206,7 +206,7 @@ System.register("ng2-commons/layout/responsive.service", ['angular2/core', 'rxjs
         }
     }
 });
-System.register("ng2-commons/layout/icon.directive", ['angular2/core'], function(exports_4, context_4) {
+System.register("ng2-commons/layout/icon.directive", ['@angular/core'], function(exports_4, context_4) {
     "use strict";
     var __moduleName = context_4 && context_4.id;
     var core_4;

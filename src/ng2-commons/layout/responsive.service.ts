@@ -1,4 +1,4 @@
-import {Injectable,Pipe} from 'angular2/core'
+import {Injectable,Pipe} from '@angular/core'
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/observable/fromEvent';
