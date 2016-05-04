@@ -20,7 +20,7 @@ export class IconDirective{
   @Input() backgroundColor:string;
   @Input() fontColor:string;
   @Input() label:string;
-  @Optional() dir = 'ltr';
+  @Input() dir = 'ltr';
   labelShown:boolean=false;
 
   showLabel(){ this.labelShown = this.label ? true:false }
