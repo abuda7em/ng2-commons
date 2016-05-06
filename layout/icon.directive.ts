@@ -11,7 +11,8 @@ import {Component,Input,Optional} from '@angular/core';
             <i [ngClass]="cssClasses" [style.backgroundColor]="backgroundColor"
               [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
               {{name}}
-            </i>gIf="labelShown && label">{{label}}</span>`
+            </i>
+            <span ngIf="labelShown && label">{{label}}</span>`
 })
 export class IconDirective{
   @Input() name:string;
