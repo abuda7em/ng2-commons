@@ -1,4 +1,4 @@
-import {Component,Input,Optional} from '@angular/core';
+import {Component,Input} from '@angular/core';
 @Component({
   selector:'sc-icon',
   host:{
@@ -12,7 +12,7 @@ import {Component,Input,Optional} from '@angular/core';
               [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
               {{name}}
             </i>
-            <span ngIf="labelShown && label">{{label}}</span>`
+            <span *ngIf="labelShown && label">{{label}}</span>`
 })
 export class IconDirective{
   @Input() name:string;
