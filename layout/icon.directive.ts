@@ -23,6 +23,7 @@ export class IconDirective{
   @Input() label:string;
   @Input() dir = 'ltr';
   @Input() fa=false;
+  @Input() spin=false;
   _cssClasses;
   labelShown:boolean=false;
 
@@ -34,6 +35,7 @@ export class IconDirective{
       this._cssClasses=c;
   }
   get cssClasses(){
-      return this.fa ? `fa fa-${this.name} ${this._cssClasses}`:`material-icons ${this._cssClasses}`;
+      this.cssClasses = this.fa? `fa fa-${this.name} ${this._cssClasses}`:`material-icons ${this._cssClasses}`;
+      return this.fa && this.spin ? `${this.cssClasses} fa-spin` : `${this.cssClasses}`;
   }
 }
