@@ -35,7 +35,7 @@ export class IconDirective{
       this._cssClasses=c;
   }
   get cssClasses(){
-      this.cssClasses = this.fa? `fa fa-${this.name} ${this._cssClasses}`:`material-icons ${this._cssClasses}`;
-      return this.fa && this.spin ? `${this.cssClasses} fa-spin` : `${this.cssClasses}`;
+      let cssClasses = this.fa? `fa fa-${this.name} ${this._cssClasses}`:`material-icons ${this._cssClasses}`;
+      return this.fa && this.spin ? `${cssClasses} fa-spin` : `${cssClasses}`;
   }
 }
