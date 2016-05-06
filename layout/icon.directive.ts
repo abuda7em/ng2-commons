@@ -10,7 +10,7 @@ import {Component,Input} from '@angular/core';
   template:`
             <i [ngClass]="cssClasses" [style.backgroundColor]="backgroundColor"
               [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
-              {{name}}
+              {{fa ? '': name}}
             </i>
             <span *ngIf="labelShown && label">{{label}}</span>`
 })
