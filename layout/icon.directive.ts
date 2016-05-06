@@ -7,9 +7,13 @@ import {Component,Input,Optional} from '@angular/core';
     '(mouseleave)':'hideLabel()'
   },
   styles:['.rounded{border-radius:50%}'],
-  template:`<i class="material-icons {{cssClasses}}" [style.backgroundColor]="backgroundColor"
+  template:`
+            <i *ngIf="!fa" [ngClass]="'material-icons '+ cssClasses" [style.backgroundColor]="backgroundColor"
               [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
               {{name}}
+            </i>
+            <i *ngIf="fa" [ngClass]="'fa '+ name + ' ' + cssClasses" [style.backgroundColor]="backgroundColor"
+              [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
             </i>
             <span *ngIf="labelShown && label">{{label}}</span>`
 })
@@ -21,6 +25,7 @@ export class IconDirective{
   @Input() fontColor:string;
   @Input() label:string;
   @Input() dir = 'ltr';
+  @Input() fa=false;
   labelShown:boolean=false;
 
   showLabel(){ this.labelShown = this.label ? true:false }
