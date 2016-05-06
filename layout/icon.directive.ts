@@ -8,26 +8,31 @@ import {Component,Input,Optional} from '@angular/core';
   },
   styles:['.rounded{border-radius:50%}'],
   template:`
-            <i *ngIf="!fa" [ngClass]="'material-icons '+ cssClasses" [style.backgroundColor]="backgroundColor"
+            <i [ngClass]="cssClasses" [style.backgroundColor]="backgroundColor"
               [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
               {{name}}
-            </i>
-            <i *ngIf="fa" [ngClass]="'fa '+ name + ' ' + cssClasses" [style.backgroundColor]="backgroundColor"
-              [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
-            </i>
-            <span *ngIf="labelShown && label">{{label}}</span>`
+            </i>gIf="labelShown && label">{{label}}</span>`
 })
 export class IconDirective{
   @Input() name:string;
-  @Input() cssClasses:string;
+  
   @Input('font-size') fontSize:string;
   @Input() backgroundColor:string;
   @Input() fontColor:string;
   @Input() label:string;
   @Input() dir = 'ltr';
   @Input() fa=false;
+  _cssClasses;
   labelShown:boolean=false;
 
   showLabel(){ this.labelShown = this.label ? true:false }
   hideLabel(){ this.labelShown = false}
+  
+  @Input() 
+  set cssClasses(c:string){
+      this._cssClasses=c;
+  }
+  get cssClasses(){
+      return this.fa ? `fa fa-${this.name} ${this._cssClasses}`:`material-icons ${this._cssClasses}`;
+  }
 }
