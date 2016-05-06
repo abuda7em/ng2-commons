@@ -5,7 +5,7 @@ var tscConfig = require('./tsconfig.json');
 var merge = require('merge2');
 var git = require('gulp-git');
 
-gulp.task('commit',['compile'], function(){
+gulp.task('commit', function(){
   return gulp.src(['./layout/*','./layout.ts', './src/*','./bundles/*','./ng2-commons.d.ts','./gulpfile.js','./package.json'])
     .pipe(git.commit('gulp commit'));
 });

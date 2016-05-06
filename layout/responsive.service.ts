@@ -25,7 +25,6 @@ export class ResponsiveService {
 
   getWindowSize() {
     let width = window.innerWidth;
-    console.log('width',width);
     let sizes = [];
     if(width < 600) sizes.push('xs');
     if(width >= 600) sizes.push('gt-xs');
@@ -65,7 +64,6 @@ export class ResponsivePipe{
         if(usedLayout === undefined ){
             usedLayout = 'default';
         }
-        console.log('matched layout',usedLayout);
         observer.next(value[usedLayout]);
       });
     });
