@@ -10,8 +10,8 @@ import {Component,Input} from '@angular/core';
       ':host{display:inline-block;white-space:nowrap}',
       '.rounded{border-radius:50%}'],
   template:`
-        <div class="wrapper">
-            <i [style.vertical-align]="fa?'':'bottom'" [ngClass]="cssClasses" [style.backgroundColor]="backgroundColor"
+        <div [class.wrapper]="label">
+            <i [style.vertical-align]="!fa?'':'bottom'" [ngClass]="cssClasses" [style.backgroundColor]="backgroundColor"
               [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
               {{fa ? '': name}}
             </i>
