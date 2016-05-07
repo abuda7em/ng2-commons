@@ -11,7 +11,7 @@ import {Component,Input} from '@angular/core';
       '.rounded{border-radius:50%}'],
   template:`
         <div [class.wrapper]="label">
-            <i [style.vertical-align]="!fa?'':'bottom'" [ngClass]="cssClasses" [style.backgroundColor]="backgroundColor"
+            <i [ngClass]="cssClasses" [style.backgroundColor]="backgroundColor"
               [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
               {{fa ? '': name}}
             </i>
