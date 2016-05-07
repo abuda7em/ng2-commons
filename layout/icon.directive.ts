@@ -8,7 +8,7 @@ import {Component,Input} from '@angular/core';
   },
   styles:['.rounded{border-radius:50%}'],
   template:`
-            <i [ngClass]="cssClasses" [style.backgroundColor]="backgroundColor"
+            <i [style.vertical-align]="fa?'':'bottom'" [ngClass]="cssClasses" [style.backgroundColor]="backgroundColor"
               [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
               {{fa ? '': name}}
             </i>
