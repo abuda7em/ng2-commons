@@ -1,4 +1,5 @@
 import {Component,Input} from '@angular/core';
+
 @Component({
   selector:'sc-icon',
   host:{
@@ -15,7 +16,7 @@ import {Component,Input} from '@angular/core';
               [style.fontSize]="fontSize" [style.color]="fontColor ? fontColor:'inherit'">
               {{fa ? '': name}}
             </i>
-            <span *ngIf="labelShown && label">{{label}}</span>
+            <span>{{label}}</span>
         </div>
     `
 })
