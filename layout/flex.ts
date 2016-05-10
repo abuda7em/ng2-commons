@@ -18,7 +18,7 @@ export class FlexDirective{
         //this.renderer.setElementStyle(this.el.nativeElement,'flex',flexString);
     }
     @HostBinding('style.flex')
-    getStyle(){
+    get style(){
         let flexString = `${this.grow} ${this.shrink} ` + (this.flex === '') ? '0%':`${this.flex}%`;
         console.log('changes',flexString, this.shrink, this.grow, this.el.nativeElement);
         return flexString;
