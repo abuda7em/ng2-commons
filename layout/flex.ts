@@ -11,7 +11,8 @@ export class FlexDirective{
     constructor(private renderer:Renderer, private el:ElementRef){}
     
     
-    ngOnChanges(){
+    ngOnChanges(changes){
+        console.log(changes, this.shrink, this.grow, this.el.nativeElement);
         let flexString = `${this.grow} ${this.shrink} ` + (this.flex === '') ? '0%':`${this.flex}%`;
         this.renderer.setElementStyle(this.el.nativeElement,'flex',flexString);
     }
