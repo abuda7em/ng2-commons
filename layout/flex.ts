@@ -1,4 +1,4 @@
-import {Directive,Input,ElementRef,Renderer} from '@angular/core';
+import {Directive, Input, ElementRef, Renderer, HostBinding} from '@angular/core';
 
 @Directive({
   selector:'[flex]'
@@ -12,8 +12,15 @@ export class FlexDirective{
     
     
     ngOnChanges(changes){
-        console.log(changes, this.shrink, this.grow, this.el.nativeElement);
+        
         let flexString = `${this.grow} ${this.shrink} ` + (this.flex === '') ? '0%':`${this.flex}%`;
-        this.renderer.setElementStyle(this.el.nativeElement,'flex',flexString);
+        
+        //this.renderer.setElementStyle(this.el.nativeElement,'flex',flexString);
+    }
+    @HostBinding('style.flex')
+    getStyle(){
+        let flexString = `${this.grow} ${this.shrink} ` + (this.flex === '') ? '0%':`${this.flex}%`;
+        console.log('changes',flexString, this.shrink, this.grow, this.el.nativeElement);
+        return flexString;
     }
 }
