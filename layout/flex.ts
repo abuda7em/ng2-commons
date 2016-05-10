@@ -19,7 +19,7 @@ export class FlexDirective{
     }
     @HostBinding('style.flex')
     get style(){
-        let flexString = `${this.grow} ${this.shrink} ` + (this.flex === '') ? '0%':`${this.flex}%`;
+        let flexString = `${this.grow} ${this.shrink} ${this.flex === '' ? '0':this.flex}%`;
         console.log('changes',flexString, this.shrink, this.grow, this.el.nativeElement);
         return flexString;
     }
