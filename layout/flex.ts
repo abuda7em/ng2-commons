@@ -12,7 +12,7 @@ export class FlexDirective{
     
     
     ngOnChanges(){
-        let flexString = (this.flex === '') ? '1 1 0%' : `${this.grow} ${this.shrink} ${this.flex}%`;
+        let flexString = `${this.grow} ${this.shrink} ` + (this.flex === '') ? '0%':`${this.flex}%`;
         this.renderer.setElementStyle(this.el.nativeElement,'flex',flexString);
     }
 }
