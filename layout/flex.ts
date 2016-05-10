@@ -6,13 +6,13 @@ import {Directive,Input,ElementRef,Renderer} from '@angular/core';
 export class FlexDirective{
     @Input() shrink:number = 1;
     @Input() grow:number = 1;
-    @Input() basis:string = '0%';
+    @Input() flex:string;
     
     constructor(private renderer:Renderer, private el:ElementRef){}
     
-    @Input()
-    set flex(f){
-        let flexString = (f === '') ? '1 1 0%' : `${this.grow} ${this.shrink} ${f}%`;
+    
+    ngOnChanges(){
+        let flexString = (this.flex === '') ? '1 1 0%' : `${this.grow} ${this.shrink} ${this.flex}%`;
         this.renderer.setElementStyle(this.el.nativeElement,'flex',flexString);
     }
 }
