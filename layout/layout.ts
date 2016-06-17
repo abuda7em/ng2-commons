@@ -28,4 +28,5 @@ export class LayoutDirective{
     this.renderer.setElementStyle(this.el.nativeElement,'align-items',alignContent);
     this.renderer.setElementStyle(this.el.nativeElement,'justify-content',justifyContent);
   }
+  
 }
