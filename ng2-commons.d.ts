@@ -1,14 +1,29 @@
-declare module "ng2-commons/layout/flex" {
-    import { ElementRef, Renderer } from '@angular/core';
+declare module "layout/flex" {
     export class FlexDirective {
-        private renderer;
-        private el;
-        flex: any;
-        constructor(renderer: Renderer, el: ElementRef);
-        ngOnChanges(): void;
+        shrink: number;
+        grow: number;
+        flex: string;
+        style: string;
     }
 }
-declare module "ng2-commons/layout/layout" {
+declare module "layout/icon.directive" {
+    export class IconDirective {
+        name: string;
+        fontSize: string;
+        backgroundColor: string;
+        fontColor: string;
+        label: string;
+        dir: string;
+        fa: boolean;
+        spin: boolean;
+        _cssClasses: any;
+        labelShown: boolean;
+        showLabel(): void;
+        hideLabel(): void;
+        cssClasses: string;
+    }
+}
+declare module "layout/layout" {
     import { Renderer, ElementRef } from '@angular/core';
     export class LayoutDirective {
         private renderer;
@@ -18,16 +33,16 @@ declare module "ng2-commons/layout/layout" {
         layoutAlign: string;
     }
 }
-declare module "ng2-commons/layout/responsive.service" {
-    import { Observable } from 'rxjs/Rx';
+declare module "layout/responsive.service" {
+    import { Observable } from 'rxjs/Observable';
     import 'rxjs/add/observable/fromEvent';
     import 'rxjs/add/operator/map';
     import 'rxjs/add/operator/pluck';
     import 'rxjs/add/operator/distinctUntilChanged';
     export class ResponsiveService {
-        width: Observable<number>;
-        height: Observable<number>;
-        layouts: Observable<Array<string>>;
+        width: Observable<any>;
+        height: Observable<any>;
+        layouts: Observable<any>;
         constructor();
         getWindowSize(): {
             height: number;
@@ -42,28 +57,15 @@ declare module "ng2-commons/layout/responsive.service" {
         transform(value: any): any;
     }
 }
-declare module "ng2-commons/layout/icon.directive" {
-    export class IconDirective {
-        name: string;
-        cssClasses: string;
-        fontSize: string;
-        backgroundColor: string;
-        fontColor: string;
-        label: string;
-        dir: string;
-        labelShown: boolean;
-        showLabel(): void;
-        hideLabel(): void;
-    }
+declare module "layout" {
+    export * from "layout/flex";
+    export * from "layout/icon.directive";
+    export * from "layout/layout";
+    export * from "layout/responsive.service";
 }
-declare module "ng2-commons/layout" {
-    export * from "ng2-commons/layout/flex";
-    import { FlexDirective } from "ng2-commons/layout/flex";
-    export * from "ng2-commons/layout/layout";
-    import { LayoutDirective } from "ng2-commons/layout/layout";
-    export const LAYOUT_DIRECTIVES: (typeof FlexDirective | typeof LayoutDirective)[];
-    export * from "ng2-commons/layout/responsive.service";
-    export * from "ng2-commons/layout/icon.directive";
-}
-declare module "ng2-commons" {
+declare module "layout/index" {
+    export { FlexDirective } from "layout/flex";
+    export { IconDirective } from "layout/icon.directive";
+    export { LayoutDirective } from "layout/layout";
+    export { ResponsiveService, ResponsivePipe } from "layout/responsive.service";
 }
